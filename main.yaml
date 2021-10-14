@@ -2,7 +2,10 @@ trigger:
  branches:
    include:
      - main
-
+ paths:
+   include:
+     - test/trigger/pipeline/*
+    
 pool:
   vmImage: ubuntu-latest
 
