@@ -1,0 +1,21 @@
+trigger:
+ branches:
+   include:
+     - master
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+  - stage: plan
+    condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))
+    jobs:
+      - job: plan
+        steps:
+        - bash: 'echo hello world'
+  - stage: apply
+    condition: and(succeeded(), eq(variables['Build.Reason'], 'IndividualCI'))
+    jobs:
+      - job: apply
+        steps:
+        - bash: 'echo hello world'
