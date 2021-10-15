@@ -4,8 +4,15 @@ trigger:
      - main
  paths:
    include:
-     - /test/trigger/pipeline/*
-    
+   - /test/trigger/pipeline/*
+
+pr:
+ branches:
+   include:
+     - main
+ paths:
+   include:
+   - /test/trigger/pipeline/*
 pool:
   vmImage: ubuntu-latest
 
